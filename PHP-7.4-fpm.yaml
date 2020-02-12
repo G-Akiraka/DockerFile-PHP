@@ -70,7 +70,7 @@ RUN /bin/cp ${PHP_PATH}/php/php.ini-production ${PHP_PATH}/php/php.ini \
     && sed -i 's@^disable_functions.*@disable_functions = passthru,exec,system,chroot,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_restore,dl,readlink,symlink,popepassthru,stream_socket_server,fsocket,popen@' ${PHP_PATH}/php/php.ini
 
 #   启动 php-fpm 根据当前内存环境自动调优
-ADD script/start_php-fpm.sh
+ADD script/start_php-fpm.sh /
 RUN chmod +x /start_php-fpm.sh
 
 # 启动 PHP-FPM
