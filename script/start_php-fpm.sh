@@ -33,4 +33,4 @@ fi
 sed -i "s@^memory_limit.*@memory_limit = ${Memory_limit}M@" ${PHP_PATH}/php/php.ini
 
 # 启动 php-fpm
-nohub php-fpm &
+nohub /usr/local/sbin/php-fpm &
