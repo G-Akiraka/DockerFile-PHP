@@ -70,6 +70,7 @@ RUN /bin/cp ${PHP_PATH}/php/php.ini-production ${PHP_PATH}/php/php.ini \
     && sed -i 's@^disable_functions.*@disable_functions = passthru,exec,system,chroot,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_restore,dl,readlink,symlink,popepassthru,stream_socket_server,fsocket,popen@' ${PHP_PATH}/php/php.ini
 
 #   拷贝配置文件
-ADD script/start_php-fpm.sh /usr/local/etc/
+ADD script/start_php-fpm.sh ${PHP_PATH} \
+    && chmod +x /start_php-fpm.sh
 # 启动 PHP-FPM
-CMD ["/usr/local/etc/start_php-fpm.sh"]
+CMD ["/start_php-fpm.sh"]
