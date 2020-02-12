@@ -185,9 +185,9 @@ docker-php-source delete
 
 #   拷贝配置文件
 ADD config/php.ini /usr/local/etc/php
-ADD config/php-fpm.conf /usr/local/etc
-ADD config/www.conf.default /usr/local/etc/php-fpm.d
+# ADD config/php-fpm.conf /usr/local/etc
+# ADD config/www.conf.default /usr/local/etc/php-fpm.d
 #   php-fpm 配置
 WORKDIR /usr/local/etc
-RUN useradd -M -s /sbin/nologin www \
-    && sed -i s@www-data@www@g php-fpm.d/www.conf
+# RUN useradd -M -s /sbin/nologin www \
+#     && sed -i s@www-data@www@g php-fpm.d/www.conf
