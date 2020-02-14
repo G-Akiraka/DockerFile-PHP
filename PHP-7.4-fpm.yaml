@@ -15,7 +15,7 @@ ENV TZ Asia/Shanghai
 ENV PHP_PATH="/usr/local/etc/"
 
 #   使用163源与设置时间
-RUN  sed -i s@/deb.debian.org/@/mirrors.163.com/@g /etc/apt/sources.list \
+RUN sed -i s@/deb.debian.org/@/mirrors.163.com/@g /etc/apt/sources.list \
     && sed -i s@/security.debian.org/@/mirrors.163.com/@g /etc/apt/sources.list \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo '$TZ' > /etc/timezone \
     #   更新系统\安装依赖包
